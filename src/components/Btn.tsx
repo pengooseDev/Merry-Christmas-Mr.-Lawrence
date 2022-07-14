@@ -1,7 +1,10 @@
 import { useRecoilState } from "recoil";
 import { themeAtom } from "../atom";
 import styled from "styled-components";
-
+import useSound from "use-sound";
+import downSFX from "../assets/audio/down.mp3";
+import upDarkSFX from "../assets/audio/upDark.mp3";
+import upLightSFX from "../assets/audio/upLight.mp3";
 const CheckBox = styled.input.attrs({
     type: "checkbox",
     id: "toggleCheck",
@@ -12,33 +15,48 @@ const CheckBox = styled.input.attrs({
     border-radius: 10px;
 `;
 
-const ToggleBox = styled.div`
+const ToggleBox = styled.div<IThemeToggle>`
     position: absolute;
     right: 10px;
     margin: 10px;
-    background: whitesmoke;
+    background: ${(props) =>
+        props.toggleProps ? "rgba(111,111,111,0.5)" : "rgba(111,111,111,0.5)"};
     border-radius: 10px;
     width: 60px;
     height: 30px;
 `;
 
 interface IThemeToggle {
-    value?: boolean;
+    toggleProps?: boolean;
 }
 
 const ToggleBtn = styled.div<IThemeToggle>`
     position: absolute;
-    top: 8%;
-    left: 8%;
-    background: tomato;
+    top: 2.5px;
+    left: ${(props) => (props.toggleProps ? "5px" : "30px")};
+    background: ${(props) => (props.toggleProps ? "#D8D8D8" : "#111")};
     width: 25px;
     height: 25px;
     border-radius: 9px;
+    transition: 0.2s ease-in-out;
 `;
 
 const Btn = () => {
     const [themeToggle, setThemeToggle] = useRecoilState(themeAtom);
+    const [down] = useSound(downSFX);
+    const [upDark] = useSound(upDarkSFX);
+    const [upLight] = useSound(upLightSFX);
 
+    const toggleSoundHandler = () => {
+        if (themeToggle) {
+            return upLight();
+        }
+        return upDark();
+    };
+
+    const downHandler = () => {
+        down();
+    };
     const themeToggleHandler = () => {
         setThemeToggle((prev) => !prev);
     };
@@ -47,7 +65,11 @@ const Btn = () => {
         <>
             <CheckBox onClick={themeToggleHandler}></CheckBox>
             <label htmlFor="toggleCheck">
-                <ToggleBox>
+                <ToggleBox
+                    toggleProps={themeToggle}
+                    onMouseDown={downHandler}
+                    onClick={toggleSoundHandler}
+                >
                     <ToggleBtn toggleProps={themeToggle} />
                 </ToggleBox>
             </label>

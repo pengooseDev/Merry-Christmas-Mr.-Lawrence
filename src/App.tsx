@@ -1,9 +1,8 @@
-import React from "react";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
 import { useRecoilValue } from "recoil";
 import { themeAtom } from "./atom";
-import Btn from "./components/Btn";
+import StyleContainer from "./components/MainStyle";
 
 const GlobalStyle = createGlobalStyle`
     body{
@@ -42,6 +41,11 @@ footer, header, hgroup, main, menu, nav, section {
 *[hidden] {
     display: none;
 }
+
+img::selection{
+    background: none;
+}
+
 body {
   line-height: 1;
 }
@@ -70,6 +74,14 @@ a{
 * {
     box-sizing: border-box;
 }
+
+    //prevent Drag CSS
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+
 `;
 
 function App() {
@@ -78,7 +90,7 @@ function App() {
         <>
             <ThemeProvider theme={themeToggle ? darkTheme : lightTheme}>
                 <GlobalStyle />
-                <Btn />
+                <StyleContainer />
             </ThemeProvider>
         </>
     );
