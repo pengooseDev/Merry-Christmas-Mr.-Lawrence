@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.js": "/Merry-Christmas-Mr.-Lawrence/static/js/main.06872938.js",
+    "static/js/845.1c3e8824.chunk.js": "/Merry-Christmas-Mr.-Lawrence/static/js/845.1c3e8824.chunk.js",
+    "static/media/titleImg.png": "/Merry-Christmas-Mr.-Lawrence/static/media/titleImg.647828a1abce070bd1eb.png",
+    "static/media/down.mp3": "/Merry-Christmas-Mr.-Lawrence/static/media/down.d10aff40e04b83f6de2f.mp3",
+    "static/media/upDark.mp3": "/Merry-Christmas-Mr.-Lawrence/static/media/upDark.5abf40d4f801cd73f63e.mp3",
+    "static/media/upLight.mp3": "/Merry-Christmas-Mr.-Lawrence/static/media/upLight.e0309e215382ac7db75f.mp3",
+    "index.html": "/Merry-Christmas-Mr.-Lawrence/index.html",
+    "main.06872938.js.map": "/Merry-Christmas-Mr.-Lawrence/static/js/main.06872938.js.map",
+    "845.1c3e8824.chunk.js.map": "/Merry-Christmas-Mr.-Lawrence/static/js/845.1c3e8824.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.06872938.js"
+  ]
+}
