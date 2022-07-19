@@ -24,6 +24,9 @@ const ToggleBox = styled.div<IThemeToggle>`
     border-radius: 10px;
     width: 60px;
     height: 30px;
+    :hover {
+        cursor: pointer;
+    }
 `;
 
 interface IThemeToggle {

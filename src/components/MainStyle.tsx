@@ -1,7 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { themeAtom } from "../atom";
 import Btn from "./Btn";
-import Light from "./Light";
 import TitleImg from "./TitleImg";
 import Snowfall from "react-snowfall";
 
